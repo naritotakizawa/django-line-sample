@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+
+
+{% block content %}
+    <h1>Lineユーザーリスト</h1>
+    {% for line_user in linepush_list %}
+        <p><a href="{% url 'app:line_message_list' line_user.pk %}">{{ line_user }}</p>
+    {% endfor %}
+{% endblock %}
+

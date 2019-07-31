@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+
+
+{% block content %}
+    <h1>{{ push.display_name }} チャット</h1>
+    {% for message in message_list %}
+        {% if message.is_admin %}
+            <div class="card right">
+        {% else %}
+            <div class="card left">
+        {% endif %}
+    {{ message.text }} - {{ message.created_at }}
+    </div>
+    {% endfor %}
+
+    <form action="" method="POST">
+        {{ form.as_p }}
+        <button type="submit">送信</button>
+        {% csrf_token %}
+    </form>
+{% endblock %}
+

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ライン</title>
+    {% block extrahead %}{% endblock %}
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+
+        header > img {
+            width: 100px;
+            height: 100px;
+        }
+
+
+        main {
+            display: grid;
+            grid-column: 1fr 1fr;
+        }
+
+        main > h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+
+        .right {
+            grid-column: 1 / -1;
+            justify-self: end;
+        }
+
+        .left {
+            grid-column: 1 / -1;
+
+        }
+
+        .card {
+            padding: 20px;
+            box-shadow: 0 1px 6px #ccc;
+            border-radius: 8px;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+
+        body > form {
+            position: fixed;
+            bottom: 0;
+        }
+
+        textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<header><img src="{% static 'app/lineqr.png' %}"></header>
+<main>{% block content %}{% endblock %}</main>
+</body>
+</html>
